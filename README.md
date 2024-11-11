@@ -1,4 +1,4 @@
-# Experiment 6: Implementation of Semantic ANalysis
+### Experiment 6: Implementation of Semantic ANalysis
 # Name: Shavedha Y
 # Register No.: 212221230095
 # Date: 11-11-2024

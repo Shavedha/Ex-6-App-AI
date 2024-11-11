@@ -1,11 +1,11 @@
-### Experiment 6: Implementation of Semantic ANalysis
-# Name: Shavedha Y
-# Register No.: 212221230095
-# Date: 11-11-2024
+## Experiment 6: Implementation of Semantic ANalysis
+## Name: Shavedha Y
+## Register No.: 212221230095
+## Date: 11-11-2024
 
-# Aim: 
+## Aim: 
    To perform Parts of speech identification and Synonym using Natural Language Processing (NLP) techniques. </H3> 
-# Algorithm:
+## Algorithm:
 Step 1: Import the nltk library.<br>
 Step 2: Download the 'punkt', 'wordnet', and 'averaged_perceptron_tagger' resources.<br>
 Step 3:Accept user input for the text.<br>
@@ -16,7 +16,7 @@ Step 5:Iterate through each word in the tokenized text.<br>
 •	For each verb , iterate through its synsets (sets of synonyms) using wordnet.synsets(word).<br>
 •	Extract synonyms and antonyms using lemma.name() and lemma.antonyms()[0].name() respectively.<br>
 •	Print the unique sets of synonyms and antonyms.
-# Program:
+## Program:
 ```python
 import nltk
 from nltk.corpus import wordnet
@@ -75,9 +75,9 @@ def main():
 if __name__ == '__main__':
     main()
 ```
-# Output:
+## Output:
 
 Show your results here
 
-# Result:
+## Result:
 Thus ,the program to perform the Parts of Speech identification and Synonymis executed sucessfully.

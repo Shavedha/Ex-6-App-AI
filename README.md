@@ -1,4 +1,4 @@
-## Experiment 6: Implementation of Semantic ANalysis
+## Experiment 6: Implementation of Semantic Analysis
 ## Name: Shavedha Y
 ## Register No.: 212221230095
 ## Date: 11-11-2024
@@ -76,8 +76,8 @@ if __name__ == '__main__':
     main()
 ```
 ## Output:
+![image](https://github.com/user-attachments/assets/61e1977e-f358-43ad-aaa0-cb6f0614b5ee)
 
-Show your results here
 
 ## Result:
 Thus ,the program to perform the Parts of Speech identification and Synonymis executed sucessfully.

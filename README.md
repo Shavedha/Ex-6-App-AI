@@ -21,59 +21,42 @@ Step 5:Iterate through each word in the tokenized text.<br>
 import nltk
 from nltk.corpus import wordnet
 
+nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
 nltk.download('wordnet')
-nltk.download('punkt')
-
-# Function to identify verbs in a sentence
-def get_verbs(sentence):
-    verbs = []
-    pos_tags = nltk.pos_tag(nltk.word_tokenize(sentence))
-    for word, tag in pos_tags:
-        if tag.startswith('V'):  # Verbs start with 'V' in the POS tag
-            verbs.append(word)
-    return verbs
-
 
 def get_synonyms(word):
-    synonyms = []
+    synonyms = set()
     for syn in wordnet.synsets(word):
         for lemma in syn.lemmas():
-            synonyms.append(lemma.name())
+            synonyms.add(lemma.name())
     return synonyms
 
-
-def read_text_file(file_path):
+def process_text_file(file_path):
     with open(file_path, 'r') as file:
         text = file.read()
-    return text
+    return text  # Return the processed text
 
+text = process_text_file('/content/sample.txt')
 
-def main():
-    file_path = 'sample.txt'
+# Tokenize the text into sentences
+sentences = nltk.sent_tokenize(text)
 
-    text = read_text_file(file_path)
-    sentences = nltk.sent_tokenize(text)
+for sentence in sentences:
+    # Tokenize each sentence into words
+    words = nltk.word_tokenize(sentence)
 
-    all_verbs = []
-    synonyms_dict = {}
+    # Perform part-of-speech tagging
+    pos_tags = nltk.pos_tag(words)
 
-    for sentence in sentences:
-        verbs = get_verbs(sentence)
-        all_verbs.extend(verbs)
-        for verb in verbs:
-            synonyms = get_synonyms(verb)
-            synonyms_dict[verb] = synonyms
+    # Extract verbs
+    verbs = [word for word, pos in pos_tags if pos.startswith('V')]
 
-    with open('output.csv', 'w', newline='') as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow(['Verb', 'Synonyms'])
-        for verb, synonyms in synonyms_dict.items():
-            writer.writerow([verb, ', '.join(synonyms)])
-
-
-if __name__ == '__main__':
-    main()
+    # Get synonyms for each verb
+    for verb in verbs:
+        synonyms = get_synonyms(verb)
+        print(f"Verb: {verb}")
+        print(f"Synonyms: {', '.join(synonyms)}\n")
 ```
 ## Output:
 ![image](https://github.com/user-attachments/assets/61e1977e-f358-43ad-aaa0-cb6f0614b5ee)
